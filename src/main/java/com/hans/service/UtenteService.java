@@ -15,12 +15,11 @@ public class UtenteService {
 	
 	@Autowired @Qualifier("FakeUtente") ObjectProvider<Utente> fakeUtenteProvider;
 	
-	public Utente creaOModificaUtente() {
-		Utente u=fakeUtenteProvider.getObject();
-		return u;			
+	public Utente creaUtente() {
+		return fakeUtenteProvider.getObject();			
 	}
 	
-	public void inserisciUtente(Utente u) {
+	public void salvaOModificaUtente(Utente u) {
 		db.save(u);
 		System.out.println("L'utente: "+u.getNome()+" "+u.getCognome()+" è stato salvato nel DB!");
 	}
