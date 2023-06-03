@@ -23,10 +23,13 @@ import lombok.NoArgsConstructor;
 public class Postazione {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
 	private String descrizione;
+	
+	@Column(name="numero_massimo_occupanti")
+	private int numeroMassimoOccupanti;
 	
 	@Enumerated(EnumType.STRING)
 	@Column(name="tipo_postazione")
@@ -35,11 +38,15 @@ public class Postazione {
 	@ManyToOne
 	private Edificio edificio;
 
-	public Postazione(String descrizione, TipoPostazione tipoPostazione, Edificio edificio) {
+	public Postazione(String descrizione, int numeroMassimoOccupanti, TipoPostazione tipoPostazione,
+			Edificio edificio) {
 		this.descrizione = descrizione;
+		this.numeroMassimoOccupanti = numeroMassimoOccupanti;
 		this.tipoPostazione = tipoPostazione;
 		this.edificio = edificio;
 	}
+
+	
 	
 	
 }

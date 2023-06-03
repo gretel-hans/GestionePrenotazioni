@@ -20,7 +20,7 @@ import lombok.ToString;
 public class Edificio {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
 	@Column(nullable = false)
