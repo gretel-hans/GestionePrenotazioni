@@ -5,7 +5,6 @@ import java.util.Locale;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
 
 import com.github.javafaker.Faker;
 import com.hans.model.Utente;

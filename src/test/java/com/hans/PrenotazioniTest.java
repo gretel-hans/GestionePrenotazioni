@@ -28,14 +28,14 @@ class PrenotazioniTest {
 	@BeforeEach
 	 void eseguiPrima() {
 		p= new PrenotazionePostazione(utenteService.cercaUtente(7l), postazioneService.cercaPostazione(2l), LocalDate.of(2023, 06, 10));
-		//prenotazioneService.salvaOModficaPrenotazionePostazione(p);
+		prenotazioneService.salvaOModficaPrenotazionePostazione(p);
 	}
 	
 	@Test
 	void test() {
 		PrenotazionePostazione p1= new PrenotazionePostazione(utenteService.cercaUtente(7l), postazioneService.cercaPostazione(4l), LocalDate.of(2023, 06, 10));;
-		//boolean c=prenotazioneService.salvaOModficaPrenotazionePostazione(p1);
-		//assertFalse(c);
+		boolean c=prenotazioneService.salvaOModficaPrenotazionePostazione(p1);
+		assertFalse(c);
 	}
 	
 	

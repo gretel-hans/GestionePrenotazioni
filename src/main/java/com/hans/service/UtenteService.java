@@ -1,17 +1,14 @@
 package com.hans.service;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
 
-import com.hans.Enums.TipoPostazione;
-import com.hans.model.Postazione;
 import com.hans.model.Utente;
-import com.hans.repository.PostazioneRepository;
 import com.hans.repository.UtenteRepository;
 
 
@@ -19,7 +16,6 @@ import com.hans.repository.UtenteRepository;
 public class UtenteService {
 
 	@Autowired UtenteRepository db;
-	@Autowired PostazioneRepository db2;
 	
 	
 	
@@ -38,7 +34,9 @@ public class UtenteService {
 		return db.findById(id).get();
 	}
 	
-	public List<Postazione> cercaPostazionePerCittaTipo(String s, TipoPostazione tipo){
-		return db2.cercaPostazionePerTipoCitta(s, tipo);
+	public List<Utente> cercaTuttiUtenti(){
+		return db.findAll();
 	}
+	
+
 }

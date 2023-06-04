@@ -32,6 +32,25 @@ public class PostazioneService {
 	}
 	
 	public Postazione cercaPostazione(long id) {
-		return db.findById(id).get();
+		return db.findById(id).get(); 
+	} 
+	
+	public List<Postazione> cercaPostazionePerTipoCitta(String citta, TipoPostazione tipo){
+		return db.cercaPostazionePerTipoCitta(citta, tipo);
 	}
+	
+	public List<Postazione> cercaTuttePostazioni(){
+		return db.findAll();
+	}
+	
+public void cercaPostazioneAzienda(Edificio e) {
+	int n=db.cercaNumeroPostazioniAzienda(e);
+	if(n==0) {
+		System.out.println(e.getNome()+" non ha postazioni attualmente salvate nel DB!");
+	}else if(n>0) {
+		System.out.println(e.getNome()+" ha: "+n+" postazioni salvate nel DB!");
+	}
+}
+
+	
 }

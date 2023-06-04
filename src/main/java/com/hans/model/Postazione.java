@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @Table(name="postazioni")
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Data 
 public class Postazione {
 
 	@Id

@@ -1,5 +1,7 @@
 package com.hans.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -23,4 +25,14 @@ public class EdificioService {
 		db.save(e);
 		System.out.println("Edificio: "+e.getNome()+" stato salvato nel DB!");
 	}
+	
+	public Edificio cercaEdificio(long id) {
+		return db.findById(id).get();
+	}
+	
+	public List<Edificio> cercaTuttiEdifici(){
+		return db.findAll();
+	}
+	
+	
 }
