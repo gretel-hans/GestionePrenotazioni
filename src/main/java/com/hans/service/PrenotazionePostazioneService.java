@@ -3,6 +3,8 @@ package com.hans.service;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -17,6 +19,7 @@ public class PrenotazionePostazioneService {
  
 	@Autowired PrenotazionePostazioneRepository db;
 	@Autowired @Qualifier("NuovaPrenotazione") ObjectProvider<PrenotazionePostazione> nuovaPrenotazione;
+	Logger log=LoggerFactory.getLogger(PrenotazionePostazioneService.class);
 	
 	public PrenotazionePostazione creaPrenotazione() {
 		return new PrenotazionePostazione();
@@ -37,7 +40,7 @@ public class PrenotazionePostazioneService {
 			System.out.println(p.getUtente().getNome()+" la tua prenotazione della postazione al: "+p.getPostazione().getEdificio().getNome()+ " è stato salvato nel dB!");			
 			return true;		
 		}else if(giaPrenotato==true) {
-			System.out.println("ERRORE! "+p.getUtente().getNome()+" non puoi prenotare nella data: "+p.getDataPrenotazione()+ " hai già una prenotazione!");			
+			log.error("ERRORE! "+p.getUtente().getNome()+" non puoi prenotare nella data: "+p.getDataPrenotazione()+ " hai già una prenotazione!");			
 		return false;
 		}
 		return (Boolean) null;

@@ -27,11 +27,9 @@ public class PrenotazionePostazione {
 	private long id;
 	
 	@ManyToOne(cascade = CascadeType.MERGE)
-	
 	private Utente utente;
 	
 	@ManyToOne(cascade = CascadeType.MERGE)
-	
 	private Postazione postazione;
 	
 	@Column(nullable = false, name="data_prenotazione")
