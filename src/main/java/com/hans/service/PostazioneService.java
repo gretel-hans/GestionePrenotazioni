@@ -31,5 +31,7 @@ public class PostazioneService {
 		System.out.println("Postazione con id: "+p.getId()+" salvato nel DB!");
 	}
 	
-	
+	public Postazione cercaPostazione(long id) {
+		return db.findById(id).get();
+	}
 }

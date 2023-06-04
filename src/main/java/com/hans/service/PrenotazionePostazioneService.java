@@ -22,7 +22,7 @@ public class PrenotazionePostazioneService {
 	
 	
 	public boolean giaPrenotato;
-	public void salvaOModficaPrenotazionePostazione(PrenotazionePostazione p) {
+	public boolean salvaOModficaPrenotazionePostazione(PrenotazionePostazione p) {
 		List<PrenotazionePostazione> listaPrenotazioniCompleta=db.findAll();
 		giaPrenotato=false;
 		listaPrenotazioniCompleta.forEach(e->{
@@ -33,9 +33,12 @@ public class PrenotazionePostazioneService {
 		if(giaPrenotato==false) {
 			db.save(p);
 			System.out.println(p.getUtente().getNome()+" la tua prenotazione della postazione al: "+p.getPostazione().getEdificio().getNome()+ " è stato salvato nel dB!");			
+			return true;		
 		}else if(giaPrenotato==true) {
 			System.out.println("ERRORE! "+p.getUtente().getNome()+" non puoi prenotare alla data "+p.getDataPrenotazione()+ " hai già una prenotazione!");			
+		return false;
 		}
+		return (Boolean) null;
 	}
 	
 }

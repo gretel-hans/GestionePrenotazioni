@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import com.hans.Enums.TipoPostazione;
 import com.hans.service.PrenotazionePostazioneService;
+import com.hans.service.UtenteService;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -23,7 +24,6 @@ import lombok.NoArgsConstructor;
 @Data
 
 public class Utente {
-	
 	
 	
 	@Id
@@ -53,9 +53,11 @@ public class Utente {
 	public void prenotaPostazione(Postazione postazione, LocalDate data) {
 		PrenotazionePostazione pp=new PrenotazionePostazione(this, postazione, data);
 		PrenotazionePostazioneService prenotazioneService=new PrenotazionePostazioneService();
-		System.out.println("systeeee: "+prenotazioneService);
+		System.out.println("Complimenti per la prenotazione "+this.nome+" del giorno: "+ data);
+		
 		//prenotazioneService.salvaOModficaPrenotazionePostazione(pp);
 	}
 	
+
 	
 }

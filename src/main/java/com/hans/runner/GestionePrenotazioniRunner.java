@@ -102,7 +102,8 @@ public class GestionePrenotazioniRunner implements ApplicationRunner {
 		long idUtente= (long)(Math.random()*20)+1;
 		long idPostazione= (long)(Math.random()*15)+1;
 		
-		PrenotazionePostazione p=new PrenotazionePostazione(utenteRepository.findById(idUtente).get(), postazioneRepository.findById(idPostazione).get(), LocalDate.ofEpochDay(random));
+		
+		//PrenotazionePostazione p=new PrenotazionePostazione(utenteRepository.findById(idUtente).get(), postazioneRepository.findById(idPostazione).get(), LocalDate.ofEpochDay(random));
 		//prenotazioneService.salvaOModficaPrenotazionePostazione(p);
 	}
     
@@ -123,8 +124,9 @@ public class GestionePrenotazioniRunner implements ApplicationRunner {
 	PrenotazionePostazione preno=new PrenotazionePostazione(utenteRepository.findById(1l).get(), postazioneRepository.findById(1l).get(), LocalDate.of(2023,06,10));
 	//prenotazioneService.salvaOModficaPrenotazionePostazione(preno);
 	
-	
-	
+	List <Postazione> listaPos=utenteService.cercaPostazionePerCittaTipo("Milano",TipoPostazione.Openspace);
+	listaPos.forEach(p->System.out.println(p));
+	System.out.println(listaPos.size());
 	
 
 	
